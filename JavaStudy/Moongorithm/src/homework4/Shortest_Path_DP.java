@@ -23,16 +23,14 @@ public class Shortest_Path_DP {
 //                {INF, INF, 2, 0, 3},
 //                {3, INF, INF, INF, 0}};
 
-
         System.out.print("몇 개의 노드를 생성 하시겠습니까? ");
         int n = input.nextInt();
-
         int R_W[][] = new int[n][n];
-
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                R_W[i][j] = ((random.nextInt(10) + 1) < 3) ? INF : random.nextInt(10) + 1;
+                R_W[i][j] = ((random.nextInt(10) + 1) < 5)
+                        ? INF : random.nextInt(10) + 1;
                 if (i == j) {
                     R_W[i][j] = 0;
                 }
@@ -85,7 +83,6 @@ public class Shortest_Path_DP {
             }
         }
 
-
         D = W;
 
 //        for(i = 0; i < n; i++) {
@@ -100,7 +97,6 @@ public class Shortest_Path_DP {
                         P[i][j] = k;
                         D[i][j] = D[i][k] + D[k][j];
                     }
-
     }
 
     public static void path(int q, int r) {
@@ -110,7 +106,6 @@ public class Shortest_Path_DP {
             path(P[q][r], r);
         }
     }
-
 
     public static void print_m(int n, int A[][]) {
         for (int i = 0; i < n; i++) {
